@@ -114,26 +114,26 @@
 
 % --- 第一个项目 ---
 % 将标题行末尾的 \\ 替换为 \titlebreak 命令
-\textbf{98烂坑风控与可视化作战平台} \hfill 2024.08 -- 至今 \titlebreak
-项目描述：为维护cc98社区的讨论纯度、净化“心灵之约”版块风气，本项目旨在对“烂坑”进行科学、严谨的量化分析，并引入\textbf{大语言模型(LLM)}对烂坑帖进行\textbf{自动化情感极性与“离谱指数”标注}。
+\textbf{校级srtp：基于无人机的动态显示项目} \hfill 2025.09 -- 至今 \titlebreak
+项目描述：主导基于无人机的POV动态显示系统研发，核心目标是将LED集成于无人机旋翼，借助视觉残留效应实现流畅动态画面输出。采用ESP32‑WROOM‑32芯片为核心控制模块，基于Arduino IDE完成开发工作。
 % 在 itemize 的选项中，使用 topsep=\intraProjectListTopSep 来控制上边距
 \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-    \item \textbf{数据与后端}：运用 \textbf{Go} 语言及 \textbf{GORM} 框架，实现对全站“烂坑”帖的7x24小时全天候\textbf{抓取}与\textbf{入库}(MySQL)。
-    \item \textbf{可视化前端}：采用原生 \textbf{HTML/CSS/JS} 构建了“烂坑”实时监控\textbf{作战大屏}。实现了坑主成分分析、挖坑热力图、年度烂坑王榜单等\textbf{可视化图表}，并通过 \textbf{AJAX} 异步刷新，确保数据洞察的实时性。
-    \item \textbf{核心产出}：全面掌握了从\textbf{数据采集、清洗、LLM标注到可视化分析}的“反烂坑”全链路技术。
+    \item \textbf{硬件电路}：设计FPC软板适配无人机旋翼，搭载APA102 LED灯珠构建显示核心，通过霍尔开关实现旋翼转速精准检测；。
+    \item \textbf{嵌入式编程}：编写LED驱动、图像编码、无线传输等核心代码，运用FreeRTOS操作系统实现LED显示、图像预加载、网络服务多任务并发运行，最终成功实现各类画面的稳定流畅输出。
 \end{itemize}
 
 % 使用 \projectsep 命令来分隔两个项目
 \projectsep
 
 % --- 第二个项目 ---
-\textbf{AIGC驱动的超进化自动挖坑机 (Agent)} \hfill 2025.02 -- 至今 \titlebreak
-项目描述：为探索心灵版规的边界，以及测试版主锁沉反应速度的极限，本项目基于\textbf{多智能体协作(MCP)与LLM}技术，开发了一款能\textbf{自主“挖坑”与“互坑”}的AI Agent。
+\textbf{智能婴儿睡垫模型机设计项目} \hfill 2026.01 -- 至今 \titlebreak
+项目描述：参与基于树莓派的智能婴儿睡垫模型机的研发与调试，负责音频分析及安抚功能实现。
 \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-    \item \textbf{并发与调度}：后端采用 \textbf{Go} 语言，充分利用 \textbf{Goroutine} 和 \textbf{Channel} 的高并发模型，模拟\textbf{用户并发在线}，执行定时挖坑，确保挖坑行动的\textbf{隐蔽性}与\textbf{高效性}。
-    \item \textbf{实时监控与响应}：运用 \textbf{WebSocket} 协议实现了对目标帖子的\textbf{实时监听与交互}。确保在烂坑被识破的第一时间，Agent能光速完成\textbf{“lktp”}或\textbf{反向钓鱼}操作，展现出极高的AI博弈能力。
-    \item \textbf{可视化GUI}：前端使用 \textbf{React} 框架构建了\textbf{后台管理的可视化面板 (Admin Panel)}。可一键下达挖坑指令、动态调整Agent的\textbf{指令}、并实时监控数据。
+    \item \textbf{大模型部署}：将YAMNet模型部署于树莓派平台，并定时驱动麦克风进行采样、数据预处理与模型分析，实现婴儿哭声实时分析系统。
+    \item \textbf{硬件电路驱动}：负责控制模块开发，利用继电器驱动气泵完成气囊充放气控制，模拟摇摇床动作实现婴儿安抚功能，助力项目顺利完成原型验证。
 \end{itemize}
+
+\section{\makebox[\widthof{\faUsers}][c]{\color{CVBlue}\faUsers}\ 校园经历}
 
 \section{\makebox[\widthof{\faCogs}][c]{\color{CVBlue}\faCogs}\ 技术栈}
 \begin{itemize}[nosep]
