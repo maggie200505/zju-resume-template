@@ -82,9 +82,9 @@
 \begin{document}
 \pagenumbering{gobble}
 
-%%%% 利用tikz来定位照片
+%%%% 头像坐标上移，解决文字重叠
 \begin{tikzpicture}[remember picture, overlay] 
-    \node[anchor = north east] at ($(current page.north east)+(-2cm,-1.2cm)$) {\includegraphics[height=3cm]{微信图片_20260405210412_487_817.jpg}};
+    \node[anchor = north east] at ($(current page.north east)+(-2cm,-0.3cm)$) {\includegraphics[height=3cm]{微信图片_20260405210412_487_817.jpg}};
 \end{tikzpicture}%
 %%%% 利用tikz来定位学校Logo
 \begin{tikzpicture}[remember picture, overlay] 
@@ -118,10 +118,20 @@
     \item \textbf{大模型部署}：将YAMNet模型部署于树莓派平台，并定时驱动麦克风进行采样、数据预处理与模型分析，实现婴儿哭声实时分析系统。
     \item \textbf{硬件电路驱动}：负责控制模块开发，利用继电器驱动气泵完成气囊充放气控制，模拟摇摇床动作实现婴儿安抚功能，项目顺利完成原型验证。
 \end{itemize}
+\projectsep
+\textbf{电赛培训} \hfill 2025.07 -- 2025.08 \titlebreak
+项目描述：参与电子设计竞赛专项培训，主攻单片机嵌入式开发与信号处理方向，夯实硬件编程与信号分析实战能力。
+\begin{itemize}[nosep, topsep=\intraProjectListTopSep]
+    \item \textbf{单片机开发}：熟练配置ADC采集、DMA传输、外部中断、PWM调速等外设，完成底层驱动与功能逻辑开发。
+    \item \textbf{信号处理}：运用数字滤波、FFT频谱分析完成时域与频域数据解析，完成各类测控类基础项目调试。
+\end{itemize}
+
 \section{\makebox[\widthof{\faUsers}][c]{\color{CVBlue}\faUsers}\ 校园经历}
 \textbf{云峰融媒体中心负责人} \hfill 2024.09 -- 2025.09 \titlebreak
 成功策划云峰樱花季、非遗工作坊、中心吉祥物设计等活动，丰富了师生文化生活，工作考评优秀，获评校级优秀团干。
+
 \projectsep
+
 \textbf{支教队队长} \hfill 2025.08 \titlebreak
 带领团队赴广东惠州开展科技支教，通过趣味编程、科学实验等课程，为当地学生打开科技之窗，个人获评校级社会实践优秀个人，团队也荣获浙江大学暑期社会实践团队十佳团队提名奖及第二届浙江大学志愿服务项目大赛十佳团队。
 
