@@ -47,43 +47,46 @@
     nohead
 ]{geometry}
 
-% 压缩行距 紧凑一页
-\renewcommand{\baselinestretch}{1.10}
+% ******************** 舒适行距（刚好一页）********************
+\renewcommand{\baselinestretch}{1.1}
 
 \usepackage{titlesec}
 \usepackage{enumitem}
-\setlist{noitemsep}
-\setlist[itemize]{topsep=0.1em, leftmargin=*}
-\setlist[enumerate]{topsep=0.1em, leftmargin=*}
+\setlist{noitemsep} % 取消列表项间的额外间距
+\setlist[itemize]{topsep=0.25em, leftmargin=*}
+\setlist[enumerate]{topsep=0.25em, leftmargin=*}
 
-% 项目间距缩小
+% --- 用于控制【不同项目之间】的垂直距离 ---
 \newlength{\interProjectSpacing}
-\setlength{\interProjectSpacing}{0.5em}
+\setlength{\interProjectSpacing}{0.65em}
 \newcommand{\projectsep}{\vspace{\interProjectSpacing}}
 
+% --- 用于控制【项目标题】与下方【项目描述】的距离 ---
 \newlength{\intraProjectTitleSep}
-\setlength{\intraProjectTitleSep}{0.2em}
+\setlength{\intraProjectTitleSep}{0.3em}
 \newcommand{\titlebreak}{\\[\intraProjectTitleSep]}
 
+% --- 用于控制【项目描述】与下方【要点列表】的距离 ---
 \newlength{\intraProjectListTopSep}
-\setlength{\intraProjectListTopSep}{0.05em}
+\setlength{\intraProjectListTopSep}{0.15em}
 
-% 章节上下间距压缩
+% =======================================================================
+
 \titleformat{\section}        
 {\large\bfseries\raggedright}
 {}{0em}                      
 {}                           
 [{\color{CVBlue}\titlerule}]  
-\titlespacing*{\section}{0cm}{*0.9}{*0.5}
+\titlespacing*{\section}{0cm}{*1.1}{*0.7}
 
 \begin{document}
 \pagenumbering{gobble}
 
-%%%% 头像上移 不遮挡文字
+%%%% 头像坐标上移，解决文字重叠
 \begin{tikzpicture}[remember picture, overlay] 
     \node[anchor = north east] at ($(current page.north east)+(-2cm,-0.3cm)$) {\includegraphics[height=3cm]{微信图片_20260405210412_487_817.jpg}};
 \end{tikzpicture}%
-%%%% 校徽
+%%%% 利用tikz来定位学校Logo
 \begin{tikzpicture}[remember picture, overlay] 
     \node[anchor = north west] at ($(current page.north west)+(0.5cm,+1.0cm)$) {\includegraphics[height=5cm]{zju.png}};
 \end{tikzpicture}%
@@ -92,44 +95,45 @@
 \centerline{\normalsize{\faPhone\ 15906583109 \quad \faEnvelopeO\ \href{mailto:3230100648@zju.edu.cn}{3230100648@zju.edu.cn}}} 
     
 \section{\makebox[\widthof{\faGraduationCap}][c]{\color{CVBlue}\faGraduationCap}\ 教育背景}    
-\textbf{浙江大学} \hfill 2023.9 -- 至今\\[0.1em]
+\textbf{浙江大学} \hfill 2023.9 -- 至今\\[0.2em]
 信息与电子工程学院 \quad 电子科学与技术\quad 大三 
 \begin{itemize}[nosep]
     \item 主修GPA:4.55（13/86）所有课程GPA：4.49（20/86）
-    \item 相关课程：《信号与系统》《集成电路原理与设计》《信息电子学物理基础》《微积分》《大学物理》《概率论与数理统计》
-    \item CET6:605，雅思：8.0
+    \item 相关课程：《信号与系统》（4.8）、《集成电路原理与设计》（4.8）、《信息电子学物理基础》（4.8）、《微积分》（5.0）、《大学物理》（5.0）、《概率论与数理统计》（5.0）
+    \item CET6:605, 雅思：8.0
 \end{itemize}
 
 \section{\makebox[\widthof{\faUsers}][c]{\color{CVBlue}\faUsers}\ 项目经历}
-\textbf{校级SRTP：基于无人机的动态显示项目} \hfill 2025.09 -- 至今 \titlebreak
-主导无人机旋翼POV视觉动态显示系统开发，以ESP32为主控，基于Arduino完成整机开发。
+
+\textbf{校级srtp：基于无人机的动态显示项目} \hfill 2025.09 -- 至今 \titlebreak
+项目描述：主导基于无人机的POV动态显示系统研发，核心目标是将LED集成于无人机旋翼，借助视觉残留效应实现流畅动态画面输出。采用ESP32‑WROOM‑32芯片为核心控制模块，基于Arduino IDE完成开发工作。
 \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-    \item 设计FPC柔性电路板集成LED阵列，搭配霍尔元件完成旋翼转速实时检测。
-    \item 编写底层驱动、图像编码与无线通信程序，基于FreeRTOS实现多任务并行调度，实现高清动态画面稳定输出。
+    \item \textbf{硬件电路}：设计FPC软板适配无人机旋翼，搭载APA102 LED灯珠构建显示核心，通过霍尔开关实现旋翼转速精准检测。
+    \item \textbf{嵌入式编程}：编写LED驱动、图像编码、无线传输等核心代码，运用FreeRTOS操作系统实现LED显示、图像预加载、网络服务多任务并发运行，最终成功实现各类画面的稳定流畅输出。
 \end{itemize}
 \projectsep
 \textbf{智能婴儿睡垫模型机设计项目} \hfill 2026.01 -- 至今 \titlebreak
-参与树莓派智能陪护睡垫研发，负责音频识别与智能安抚模块开发调试。
+项目描述：参与基于树莓派的智能婴儿睡垫模型机的研发与调试，负责音频分析及安抚功能实现。
 \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-    \item 部署YAMNet音频模型，完成声音采集、预处理与哭声智能识别。
-    \item 编写硬件控制逻辑，驱动气泵气囊完成节律摆动，实现智能安抚功能，完成原型验证。
+    \item \textbf{大模型部署}：将YAMNet模型部署于树莓派平台，并定时驱动麦克风进行采样、数据预处理与模型分析，实现婴儿哭声实时分析系统。
+    \item \textbf{硬件电路驱动}：负责控制模块开发，利用继电器驱动气泵完成气囊充放气控制，模拟摇摇床动作实现婴儿安抚功能，项目顺利完成原型验证。
 \end{itemize}
 \projectsep
-\textbf{电赛专项培训} \hfill 2025.07 -- 2025.08 \titlebreak
-深耕嵌入式单片机与信号处理技术，夯实电子竞赛实战能力。
+\textbf{电赛培训} \hfill 2025.07 -- 2025.08 \titlebreak
+项目描述：参与电子设计竞赛专项培训，主攻单片机嵌入式开发与信号处理方向，夯实硬件编程与信号分析实战能力。
 \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-    \item 熟练配置ADC、DMA、中断、PWM等外设，独立完成各类底层驱动开发。
-    \item 运用数字滤波、FFT频谱分析完成信号时域频域解析，完成测控类项目调试。
+    \item \textbf{单片机开发}：熟练配置ADC采集、DMA传输、外部中断、PWM调速等外设，完成底层驱动与功能逻辑开发。
+    \item \textbf{信号处理}：运用数字滤波、FFT频谱分析完成时域与频域数据解析，完成各类测控类基础项目调试。
 \end{itemize}
 
 \section{\makebox[\widthof{\faUsers}][c]{\color{CVBlue}\faUsers}\ 校园经历}
 \textbf{云峰融媒体中心负责人} \hfill 2024.09 -- 2025.09 \titlebreak
-统筹策划校园文化活动，统筹团队日常运营，工作考评优异，获评校级优秀团干。
+成功策划云峰樱花季、非遗工作坊、中心吉祥物设计等活动，丰富了师生文化生活，工作考评优秀，获评校级优秀团干。
 
 \projectsep
 
 \textbf{支教队队长} \hfill 2025.08 \titlebreak
-带队开展乡村科技支教，开设编程与科学实验课程，获评校级社会实践优秀个人，团队斩获多项校级志愿服务奖项。
+带领团队赴广东惠州开展科技支教，通过趣味编程、科学实验等课程，为当地学生打开科技之窗，个人获评校级社会实践优秀个人，团队也荣获浙江大学暑期社会实践团队十佳团队提名奖及第二届浙江大学志愿服务项目大赛十佳团队。
 
 \section{\makebox[\widthof{\faCogs}][c]{\color{CVBlue}\faCogs}\ 技术栈}
 \begin{itemize}[nosep]
@@ -141,7 +145,7 @@
 \begin{itemize}[nosep]
     \item 省政府奖学金、浙江大学一等奖学金 \hfill 2024.10
     \item 浙江大学三等奖学金 \hfill 2025.10
-    \item 校级优秀团干 \hfill 2025.10
+    \item 浙江大学优秀团干 \hfill 2025.10
 \end{itemize}
     
 \end{document}
