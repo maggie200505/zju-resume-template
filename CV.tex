@@ -47,7 +47,8 @@
     nohead
 ]{geometry}
 
-\renewcommand{\baselinestretch}{1.5} % 行间距设为1.5
+% 👇 这里已缩小行间距（原来 1.5 → 现在 1.15）
+\renewcommand{\baselinestretch}{1.15}
 
 \usepackage{titlesec}
 \usepackage{enumitem}
@@ -57,17 +58,17 @@
 
 % --- 用于控制【不同项目之间】的垂直距离 ---
 \newlength{\interProjectSpacing}
-\setlength{\interProjectSpacing}{0.9em}
+\setlength{\interProjectSpacing}{0.7em} % 也一起缩小
 \newcommand{\projectsep}{\vspace{\interProjectSpacing}}
 
 % --- 用于控制【项目标题】与下方【项目描述】的距离 ---
 \newlength{\intraProjectTitleSep}
-\setlength{\intraProjectTitleSep}{0.4em}
+\setlength{\intraProjectTitleSep}{0.3em}
 \newcommand{\titlebreak}{\\[\intraProjectTitleSep]}
 
 % --- 用于控制【项目描述】与下方【要点列表】的距离 ---
 \newlength{\intraProjectListTopSep}
-\setlength{\intraProjectListTopSep}{0.2em}
+\setlength{\intraProjectListTopSep}{0.15em}
 
 % =======================================================================
 
@@ -76,16 +77,16 @@
 {}{0em}                      
 {}                           
 [{\color{CVBlue}\titlerule}]  
-\titlespacing*{\section}{0cm}{*1.6}{*1.2}
+\titlespacing*{\section}{0cm}{*1.2}{*0.8}
 
 \begin{document}
 \pagenumbering{gobble}
 
 %%%% 利用tikz来定位照片
 \begin{tikzpicture}[remember picture, overlay] 
-    \node[anchor = north east] at ($(current page.north east)+(-2cm,-1.2cm)$) {\includegraphics[height=3cm]{maggie.jpg}};
+    \node[anchor = north east] at ($(current page.north east)+(-2cm,-1.2cm)$) {\includegraphics[height=3cm]{微信图片_20260405210412_487_817.jpg}};
 \end{tikzpicture}%
-%%%% 利用tikz来定位学校Logo，这里只在第一页显示
+%%%% 利用tikz来定位学校Logo
 \begin{tikzpicture}[remember picture, overlay] 
     \node[anchor = north west] at ($(current page.north west)+(0.5cm,+1.0cm)$) {\includegraphics[height=6cm]{zju.png}};
 \end{tikzpicture}%
@@ -94,7 +95,7 @@
 \centerline{\normalsize{\faPhone\ 15906583109 \quad \faEnvelopeO\ \href{mailto:3230100648@zju.edu.cn}{3230100648@zju.edu.cn}}} 
     
 \section{\makebox[\widthof{\faGraduationCap}][c]{\color{CVBlue}\faGraduationCap}\ 教育背景}    
-\textbf{浙江大学} \hfill 2023.9 -- 至今\\[0.5em]
+\textbf{浙江大学} \hfill 2023.9 -- 至今\\[0.3em]
 信息与电子工程学院 \quad 电子科学与技术\quad 大三 
 \begin{itemize}[nosep]
     \item 主修GPA:4.55（13/86）所有课程GPA：4.49（20/86）
