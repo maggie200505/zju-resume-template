@@ -1,6 +1,5 @@
 \documentclass[11pt]{article}
 
-
 \setlength{\parindent}{0pt}
 \usepackage{xltxtra}
 \usepackage{hyperref}
@@ -18,7 +17,6 @@
 \usepackage{enumitem}
 \CJKsetecglue{} %% 取消中文与数字之间的间隙
 
-
 %% 主文档字体设置
 \setmainfont[
     Path = fonts/Main/,
@@ -32,7 +30,6 @@
     Extension = .ttf,
     BoldFont = NotoSansSC-Bold.ttf, % 加粗字体
 ]{NotoSansSC-Regular.otf} % 正文字体
-
 
 \usepackage{relsize}
 \usepackage{xspace}
@@ -55,35 +52,31 @@
 \usepackage{titlesec}
 \usepackage{enumitem}
 \setlist{noitemsep} % 取消列表项间的额外间距
-%\setlist{nosep} % 取消所有垂直间距
 \setlist[itemize]{topsep=0.25em, leftmargin=*}
 \setlist[enumerate]{topsep=0.25em, leftmargin=*}
 
 % --- 用于控制【不同项目之间】的垂直距离 ---
 \newlength{\interProjectSpacing}
-\setlength{\interProjectSpacing}{0.9em} % <--- 在此调整项目之间的距离
+\setlength{\interProjectSpacing}{0.9em}
 \newcommand{\projectsep}{\vspace{\interProjectSpacing}}
 
 % --- 用于控制【项目标题】与下方【项目描述】的距离 ---
 \newlength{\intraProjectTitleSep}
-\setlength{\intraProjectTitleSep}{0.4em} % <--- 在此调整标题和描述的距离
+\setlength{\intraProjectTitleSep}{0.4em}
 \newcommand{\titlebreak}{\\[\intraProjectTitleSep]}
 
 % --- 用于控制【项目描述】与下方【要点列表】的距离 ---
 \newlength{\intraProjectListTopSep}
-\setlength{\intraProjectListTopSep}{0.2em} % <--- 在此调整描述和列表的距离
+\setlength{\intraProjectListTopSep}{0.2em}
 
 % =======================================================================
 
-
-\titleformat{\section}         % 定制 \section 命令 
-{\large\bfseries\raggedright} % 将 section 标题设置为大号、粗体且左对齐
-{}{0em}                      % 可用于为所有 section 添加前缀（如“章节...”）
-{}                           % 可用于在标题前插入代码
-[{\color{CVBlue}\titlerule}]  % 在标题后插入一条横线
+\titleformat{\section}        
+{\large\bfseries\raggedright}
+{}{0em}                      
+{}                           
+[{\color{CVBlue}\titlerule}]  
 \titlespacing*{\section}{0cm}{*1.6}{*1.2}
-
-
 
 \begin{document}
 \pagenumbering{gobble}
@@ -91,44 +84,35 @@
 %%%% 利用tikz来定位照片
 \begin{tikzpicture}[remember picture, overlay] 
     \node[anchor = north east] at ($(current page.north east)+(-2cm,-1.2cm)$) {\includegraphics[height=3cm]{avatar.jpg}};
-  \end{tikzpicture}%
-  %%%% 利用tikz来定位学校Logo，这里只在第一页显示
-  \begin{tikzpicture}[remember picture, overlay] 
+\end{tikzpicture}%
+%%%% 利用tikz来定位学校Logo，这里只在第一页显示
+\begin{tikzpicture}[remember picture, overlay] 
     \node[anchor = north west] at ($(current page.north west)+(0.5cm,+1.0cm)$) {\includegraphics[height=6cm]{zju.png}};
-  \end{tikzpicture}%
-\centerline{\LARGE\bfseries{邬梓荫}} 
+\end{tikzpicture}%
 
+\centerline{\LARGE\bfseries{邬梓荫}} 
 \centerline{\normalsize{\faPhone\ 15906583109 \quad \faEnvelopeO\ \href{mailto:3230100648@zju.edu.cn}{3230100648@zju.edu.cn}}} 
     
 \section{\makebox[\widthof{\faGraduationCap}][c]{\color{CVBlue}\faGraduationCap}\ 教育背景}    
-\textbf{浙江大学} \hfill 2023.9 -- 至今\\[0.5em] % 标题和正文间加一点距离
+\textbf{浙江大学} \hfill 2023.9 -- 至今\\[0.5em]
 信息与电子工程学院 \quad 电子科学与技术\quad 大三 
 \begin{itemize}[nosep]
     \item 主修GPA:4.55（13/86）所有课程GPA：4.49（20/86）
-\end{itemize}
-\begin{itemize}[nosep]
     \item 相关课程：《信号与系统》（4.8）、《集成电路原理与设计》（4.8）、《信息电子学物理基础》（4.8）、《微积分》（5.0）、《大学物理》（5.0）、《概率论与数理统计》（5.0）
-\end{itemize}
-\begin{itemize}[nosep]
     \item CET6:605, 雅思：8.0
 \end{itemize}
 
 \section{\makebox[\widthof{\faUsers}][c]{\color{CVBlue}\faUsers}\ 项目经历}
 
-% --- 第一个项目 ---
-% 将标题行末尾的 \\ 替换为 \titlebreak 命令
 \textbf{校级srtp：基于无人机的动态显示项目} \hfill 2025.09 -- 至今 \titlebreak
 项目描述：主导基于无人机的POV动态显示系统研发，核心目标是将LED集成于无人机旋翼，借助视觉残留效应实现流畅动态画面输出。采用ESP32‑WROOM‑32芯片为核心控制模块，基于Arduino IDE完成开发工作。
-% 在 itemize 的选项中，使用 topsep=\intraProjectListTopSep 来控制上边距
 \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-    \item \textbf{硬件电路}：设计FPC软板适配无人机旋翼，搭载APA102 LED灯珠构建显示核心，通过霍尔开关实现旋翼转速精准检测；。
+    \item \textbf{硬件电路}：设计FPC软板适配无人机旋翼，搭载APA102 LED灯珠构建显示核心，通过霍尔开关实现旋翼转速精准检测。
     \item \textbf{嵌入式编程}：编写LED驱动、图像编码、无线传输等核心代码，运用FreeRTOS操作系统实现LED显示、图像预加载、网络服务多任务并发运行，最终成功实现各类画面的稳定流畅输出。
 \end{itemize}
 
-% 使用 \projectsep 命令来分隔两个项目
 \projectsep
 
-% --- 第二个项目 ---
 \textbf{智能婴儿睡垫模型机设计项目} \hfill 2026.01 -- 至今 \titlebreak
 项目描述：参与基于树莓派的智能婴儿睡垫模型机的研发与调试，负责音频分析及安抚功能实现。
 \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
@@ -139,28 +123,29 @@
 \section{\makebox[\widthof{\faUsers}][c]{\color{CVBlue}\faUsers}\ 校园经历}
 \textbf{云峰融媒体中心负责人} \hfill 2024.09 -- 2025.09 \titlebreak
 成功策划云峰樱花季、非遗工作坊、中心吉祥物设计等活动，丰富了师生文化生活，工作考评优秀，获评校级优秀团干。
-\end{itemize}
+
+\projectsep
+
 \textbf{支教队队长} \hfill 2025.08 \titlebreak
 带领团队赴广东惠州开展科技支教，通过趣味编程、科学实验等课程，为当地学生打开科技之窗，个人获评校级社会实践优秀个人，团队也荣获浙江大学暑期社会实践团队十佳团队提名奖及第二届浙江大学志愿服务项目大赛十佳团队。
-\end{itemize}
 
 \section{\makebox[\widthof{\faCogs}][c]{\color{CVBlue}\faCogs}\ 技术栈}
 \begin{itemize}[nosep]
-    \item \textbf{编程语言：} python, C, verilog
+    \item \textbf{编程语言：} Python, C, Verilog
     \item \textbf{开发工具：} Multisim, AD, Matlab, Keil, Arduino IDE
 \end{itemize}
-\section{\makebox[\widthof{\faGraduationCap}][c]{\color{CVBlue}\faList}\ 获奖情况}
-\begin{itemize}
+
+\section{\makebox[\widthof{\faList}][c]{\color{CVBlue}\faList}\ 获奖情况}
+\begin{itemize}[nosep]
     \item 省政府奖学金、浙江大学一等奖学金 \hfill 2024.10
     \item 浙江大学三等奖学金 \hfill 2025.10
     \item 浙江大学优秀团干 \hfill 2025.10
-    
 \end{itemize}
     
 \section{\makebox[\widthof{\faInfo}][c]{\color{CVBlue}\faInfo}\ 其他}
 \begin{itemize}[parsep=0.5ex]
     \item \textbf{技术博客：} \href{https://maksymilan.github.io/}{https://maksymilan.github.io/}
     \item \textbf{GitHub：} \href{https://github.com/maksymilan}{https://github.com/maksymilan} 
-    \item \textbf{英语水平：} CET-6
+    \item \textbf{英语水平：} CET-6 605分，雅思8.0
 \end{itemize}
 \end{document}
